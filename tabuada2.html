@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Tabuada</h1>
+    </header>
+    <section>
+        <div id="dados">
+            <p>
+                Número: <input type="number" name="numero" id="numero">
+                <input type="button" id="btn" value="Gerar Tabuada" onclick="calcular()">
+            </p>
+        </div>
+        <div>
+
+            <select name="tabuada" id="tabuada" size="10">
+                <option value="">Aguardando número...</option>
+            </select>
+
+        </div>
+    </section>
+    <footer>
+        &copy; Exercício Curso em Vídeo
+    </footer>
+
+    <script>
+        // função javascript para incluir os valores em uma caixa select
+        function calcular() {
+            const caixa = document.querySelector("#tabuada")
+            const numTxt = document.querySelector("#numero")
+            const numN = Number(numTxt.value)
+            
+            if (numTxt.value.length == 0) {
+                window.alert("Digite um valor")
+            } else {
+                caixa.innerHTML = ""
+                for (let i = 1; i <= 10; i++) {
+                    const item = document.createElement('option')
+                    item.text = `${numN} x ${i} = ${numN * i}`
+                    caixa.appendChild(item)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
